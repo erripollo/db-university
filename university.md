@@ -10,53 +10,49 @@ Modellizzare la struttura di una tabella per memorizzare tutti i dati riguardant
 
 ## dipartimenti
 
-- id
-- nome
-- (!) corsi_di_laurea
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- nome_dipartimento VARCHAR(80) NOTNULL INDEX
+- desc TEXT NULL
 
 ## corsi_di_laurea
 
-- id
-- nome
-- (!) corsi
-- (!) studenti
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- nome_corso VARCHAR(80) NOTNULL INDEX
+- desc TEXT NULL
 
 ## corsi
 
-- id
-- nome
-- data_inizio
-- data_fine
-- (!) insegnanti
-- (!) esami
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- nome VARCHAR(80) NOTNULL INDEX
+- data_inizio DATE NOTNULL
+- data_fine DATE NULL
+- desc TEXT NULL
 
 ## insegnati
 
-- id
-- nome
-- cognome
-- email
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- nome VARCHAR(15) NOTNULL
+- cognome VARCHAR(15) NOTNULL INDEX
+- email VARCHAR(30) NOTNULL
 
 ## esami
 
-- id
-- titolo
-- data
-- ora_inizio
-- ora_fine
-- (!) studenti
-- (!) voti
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- materia VARCHAR(40) NOTNULL INDEX
+- data DATE NOTNULL
+- ora_inizio TIME NULL
+- ora_fine TIME NULL
+- desc TEXT NULL
 
 ## studenti
 
-- id
-- nome
-- cognome
-- età
-- email
-- (!) voti
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- nome VARCHAR(15) NOTNULL
+- cognome VARCHAR(15) NOTNULL INDEX
+- età TINYINT NOTNULL
+- email VARCHAR(30) NOTNULL
 
 ## voti
 
-- id
-- valutazione
+- id BIGINT AUTOINCREMENT PRIMARY KEY UNIQUE NOTNULL INDEX
+- valutazione TINYINT NOTNULL
