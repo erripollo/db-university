@@ -40,8 +40,8 @@ if ($results && $results->num_rows > 0) {
     echo '</pre>'; */
     
     // Cicliare tra i risultati e mostraiamoli a schermo
-    while ($project = $results->fetch_array()) {
-  ?>
+    while ($project = $results->fetch_array()) { ?>
+
       <h1><?= $project['name']; ?></h1>
       <p><?= $project['address']; ?></p>
       <p><?= $project['phone'] ?></p>
@@ -51,13 +51,16 @@ if ($results && $results->num_rows > 0) {
       <p>
         <a href="#"><?= $project['website'] ?></a>
       </p>
-  <?php
-    }
+    <?php }
+    
 } elseif ($results) {
     echo 'Nessun Risultato';
 } else {
     echo 'Errore nella query';
 }
+
+# 6. Chiudi la connessione
+$connection->close();
   
 
 ?>
